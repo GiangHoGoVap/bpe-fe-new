@@ -1,0 +1,68 @@
+.djs-palette {
+  display: none;
+}
+
+.bjs-powered-by {
+  display: none;
+}
+
+.bts-toggle-mode {
+  display: none !important;
+}
+
+.bts-palette {
+  display: none !important;
+}
+
+.bts-set-animation-speed {
+  display: none !important;
+}
+
+/* .djs-overlay-ts-context-menu {
+  display: none !important;
+} */
+
+.bts-context-pad {
+  display: none !important;
+}
+
+.bjsl-button {
+  display: none !important;
+}
+
+[class^='bpmn-icon-'].custom-entry:before,
+[class*=' bpmn-icon-'].custom-entry:before {
+  display: inline !important;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+[class^='bpmn-icon-'].custom-entry,
+[class*=' bpmn-icon-'].custom-entry {
+  display: flex;
+  width: 100%;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  align-items: center;
+}
+
+[class^='bpmn-icon-'].custom-entry.color-black,
+[class*=' bpmn-icon-'].custom-entry.color-black {
+  color: black;
+}
+
+[class^='bpmn-icon-'].custom-entry.color-black:hover,
+[class*=' bpmn-icon-'].custom-entry.color-black:hover {
+  color: black;
+  background-color: unset;
+}
+
+[class^='bpmn-icon-'].custom-entry:hover,
+[class*=' bpmn-icon-'].custom-entry:hover {
+  background-color: #dddddd;
+  color: black;
+}

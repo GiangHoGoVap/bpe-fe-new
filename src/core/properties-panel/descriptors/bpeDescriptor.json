@@ -1,0 +1,115 @@
+{
+  "name": "BPE",
+  "prefix": "data",
+  "uri": "http://bpe",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "BpeTask",
+      "extends": ["bpmn:Task"],
+      "properties": [
+        {
+          "name": "cycleTime",
+          "isAttr": true,
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "BpeSequenceFlow",
+      "extends": ["bpmn:SequenceFlow"],
+      "properties": [
+        {
+          "name": "branchingProbability",
+          "isAttr": true,
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "BpeLinkEvent",
+      "extends": ["bpmn:IntermediateCatchEvent", "bpmn:IntermediateThrowEvent"],
+      "properties": [
+        {
+          "name": "linkCode",
+          "isAttr": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "BpeConditionalEvent",
+      "extends": [
+        "bpmn:IntermediateCatchEvent",
+        "bpmn:IntermediateThrowEvent",
+        "bpmn:StartEvent",
+        "bpmn:BoundaryEvent"
+      ],
+      "properties": [
+        {
+          "name": "condition",
+          "isAttr": true,
+          "type": "string"
+        },
+        {
+          "name": "percentage",
+          "isAttr": true,
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "BpeTimerEvent",
+      "extends": ["bpmn:IntermediateCatchEvent", "bpmn:StartEvent", "bpmn:BoundaryEvent"],
+      "properties": [
+        {
+          "name": "duration",
+          "isAttr": true,
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "BpeMessageEvent",
+      "extends": [
+        "bpmn:IntermediateCatchEvent",
+        "bpmn:IntermediateThrowEvent",
+        "bpmn:BoundaryEvent",
+        "bpmn:StartEvent",
+        "bpmn:EndEvent"
+      ],
+      "properties": [
+        {
+          "name": "isStart",
+          "isAttr": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "BpeCodePropertyEvent",
+      "extends": ["bpmn:BoundaryEvent", "bpmn:StartEvent", "bpmn:EndEvent"],
+      "properties": [
+        {
+          "name": "code",
+          "isAttr": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "BpeLane",
+      "extends": ["bpmn:Lane", "bpmn:Participant"],
+      "properties": [
+        {
+          "name": "unitCost",
+          "isAttr": true,
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}

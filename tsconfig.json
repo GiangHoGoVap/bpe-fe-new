@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/constants/*": [
+        "src/constants/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/icons/*": [
+        "src/icons/*"
+      ],
+      "@/redux/*": [
+        "src/redux/*"
+      ],
+      "@/core/*": [
+        "src/core/*"
+      ],
+      "@/survey/*": [
+        "src/survey/*"
+      ],
+      "@/assets/*": [
+        "src/assets/*"
+      ],
+      "@/api/*": [
+        "src/api/*"
+      ],
+      "@/interfaces/*": [
+        "src/interfaces/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "custom.d.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

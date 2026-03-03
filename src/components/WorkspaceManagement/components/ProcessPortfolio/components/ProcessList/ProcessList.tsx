@@ -1,0 +1,70 @@
+import { EmptyRender } from "@/components/EmptyRender";
+import { usePortfolioProcessQuery } from "@/hooks/index";
+import { PortfolioProcess } from "@/interfaces/index";
+import { Accordion, Flex, Grid, Skeleton, Text } from "@mantine/core";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ProcessItem from "../ProcessItem/ProcessItem";
+
+interface ProcessListProps {
+  projectId: number | null;
+}
+
+const ProcessList = (props: ProcessListProps) => {
+  const { projectId } = props;
+  const { workspaceId } = useParams();
+  const [processId, setProcessId] = useState<number | null>();
+
+  const { data: processes } = usePortfolioProcessQuery({
+    workspaceId: Number(workspaceId),
+    projectId: Number(projectId),
+  });
+
+  useEffect(() => {
+    if (processes) {
+      setProcessId(processes[0].id);
+    }
+  }, [processes]);
+
+  return (
+    <Accordion.Panel>
+      {!processes ? (
+        <Accordion>
+          <Skeleton height={50} mt={0} radius={0} />
+        </Accordion>
+      ) : (
+        <Accordion
+          variant="contained"
+          styles={{
+            control: {
+              backgroundColor: "white",
+            },
+            content: {
+              backgroundColor: "white",
+            },
+          }}
+          transitionDuration={0}
+          value={processId?.toString()}
+          onChange={(value) => {
+            setProcessId(Number(value));
+          }}
+          defaultValue={processes[0].id.toString()}
+        >
+          {processes.length > 0 ? (
+            processes.map((item: PortfolioProcess) => {
+              return <ProcessItem data={item} processId={Number(processId)} />;
+            })
+          ) : (
+            <Accordion.Item value="0">
+              <Accordion.Control>
+                <EmptyRender text="There is no process in this project. Please create new process!" />
+              </Accordion.Control>
+            </Accordion.Item>
+          )}
+        </Accordion>
+      )}
+    </Accordion.Panel>
+  );
+};
+
+export default ProcessList;
