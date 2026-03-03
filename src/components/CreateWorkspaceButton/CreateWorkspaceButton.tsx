@@ -7,6 +7,7 @@ import {
     Group,
     Input,
     Modal,
+    Stack,
     TextInput,
     Textarea,
 } from "@mantine/core";
@@ -84,6 +85,7 @@ const CreateWorkspaceButton = ({
                 title="Create new Workspace"
                 centered
                 withinPortal
+                size="lg"
                 overlayProps={{
                     blur: 3,
                     opacity: 0.55,
@@ -95,10 +97,11 @@ const CreateWorkspaceButton = ({
                     },
                     content: {
                         margin: 0,
+                        width: "min(640px, calc(100vw - 2rem))",
                     },
                 }}
             >
-                <Group>
+                <Stack>
                     <Input.Wrapper label="Name" className={classes.input}>
                         <TextInput
                             placeholder="Name"
@@ -128,7 +131,7 @@ const CreateWorkspaceButton = ({
                             }
                         />
                     </Input.Wrapper>
-                </Group>
+                </Stack>
                 <Divider my="sm" />
                 <Group position="right">
                     <Button variant="subtle" onClick={onClear}>
